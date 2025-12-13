@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MATH_TOPICS } from '../constants';
 import { BrainIcon } from './Icons';
@@ -27,10 +26,13 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
         
         <div className="flex flex-col space-y-6">
           <div className="relative">
+             <label htmlFor="topic-select" className="sr-only">Select a topic</label>
             <select
+              id="topic-select"
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
               className="w-full px-4 py-3 bg-gray-900 border border-indigo-600 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-400 text-lg"
+              aria-label="Select math topic"
             >
               {MATH_TOPICS.map((topic) => (
                 <option key={topic} value={topic}>
@@ -52,7 +54,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
         </div>
       </div>
       <footer className="absolute bottom-4 text-sm text-gray-500">
-        Powered by Gemini API
+        powered by sahil khan
       </footer>
     </div>
   );

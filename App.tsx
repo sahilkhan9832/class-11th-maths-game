@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { GameState, Question } from './types';
 import StartScreen from './components/StartScreen';
@@ -58,6 +57,7 @@ const App: React.FC = () => {
   const handleRestart = useCallback(() => {
     setGameState('START');
     setQuestions([]);
+    setError(null);
   }, []);
 
   const renderContent = () => {
@@ -74,7 +74,7 @@ const App: React.FC = () => {
       return (
           <div className="flex flex-col items-center justify-center min-h-screen">
               <StartScreen onStart={handleStartGame} />
-              <div className="absolute top-5 bg-red-500/80 text-white p-4 rounded-lg shadow-lg">
+              <div className="absolute top-5 bg-red-500/80 text-white p-4 rounded-lg shadow-lg animate-pulse">
                   <p className="font-bold">Error:</p>
                   <p>{error}</p>
               </div>
